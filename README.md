@@ -1,6 +1,6 @@
 # A Wordpress template on Gitpod
 
-This is a [Wordpress](wordpress) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
+This is a [Wordpress](https://wordpress.org/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
 
 ## Next Steps
 
