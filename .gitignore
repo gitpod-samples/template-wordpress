@@ -1,5 +1,8 @@
-# Ignore WP Root (for Plugin Development
+# Ignore WP Root (for Plugin Development)
 wp-root
+
+# Ignore "database" this is where the mySQL data is kept. Uncomment for persistance.
+database
 
 # ignore everything in the root except the "wp-content" directory.
 !wp-content/
