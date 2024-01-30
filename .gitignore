@@ -1,25 +1,10 @@
-# Ignore WP Root (for Plugin Development)
-wp-root
 
-# Ignore "database" this is where the mySQL data is kept. Uncomment for persistance.
-database
-
-# ignore everything in the root except the "wp-content" directory.
-!wp-content/
-
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
-
-# ignore these plugins
+# ignore the default plugins
 wp-content/plugins/hello.php
 wp-content/plugins/index.php
 wp-content/plugins/akismet/*
 
-# ignore specific themes
+# ignore the default themes
 wp-content/themes/twenty*/
 wp-content/themes/index.php
 
