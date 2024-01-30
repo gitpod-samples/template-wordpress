@@ -1,12 +1,16 @@
 
+# ignore main wordpress files
+wp-root/*
+!wp-root/wp-content/
+
 # ignore the default plugins
-wp-content/plugins/hello.php
-wp-content/plugins/index.php
-wp-content/plugins/akismet/*
+wp-root/wp-content/plugins/hello.php
+wp-root/wp-content/plugins/index.php
+wp-root/wp-content/plugins/akismet/*
 
 # ignore the default themes
-wp-content/themes/twenty*/
-wp-content/themes/index.php
+wp-root/wp-content/themes/twenty*/
+wp-root/wp-content/themes/index.php
 
 # ignore node dependency directories
 node_modules/
