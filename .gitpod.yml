@@ -1,8 +1,23 @@
 tasks:
-  - init: |
+  - name: Install
+    init: |
       docker-compose pull
-  - command: |
-      docker-compose up
+      gp sync-done docker
+    command: docker-compose up
+  
+  - name: Set permission
+  # Waits a little and then configures Wordpress
+  # Last line opens Website in new browser window
+    init: |
+      gp sync-await docker
+      echo "Waiting 20s for DB to get ready..."
+      sleep 20
+    # Set permission that "gitpod" user can access folders created inside docker container. Couldn't find a better way.
+    # Then open Wordpress in Browser
+    command: |
+      sudo chmod -R 755 ./wp-root
+      sudo chown -R gitpod:gitpod ./wp-root
+      gp preview $(gp url 8000) --external
 
 vscode:
   extensions:
