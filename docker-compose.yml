@@ -1,8 +1,7 @@
-version: "3.9"
-    
+ 
 services:
   db:
-    image: mysql:5.7
+    image: mysql:latest
     volumes:
       - database:/var/lib/mysql
     restart: always
@@ -16,8 +15,6 @@ services:
     depends_on:
       - db
     image: wordpress:latest
-    volumes:
-      - src:/var/www/html
     ports:
       - "8000:80"
     restart: always
@@ -25,8 +22,10 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+    volumes: 
+      - ./wp-root:/var/www/html
+      - ./apache-logs/:/var/log/apache2
 
 volumes:
   database:
-  src:
+  apache-logs:

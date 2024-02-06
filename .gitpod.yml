@@ -1,8 +1,27 @@
 tasks:
-  - init: |
+  - name: Install
+    # The built step is helpful because we modify the wordpress docker image to include wp-CLI
+    init: |
       docker-compose pull
-  - command: |
+      docker-compose build
+      echo "Docker images built. Starting Docker..."
+    command: |
+      gp sync-done docker
       docker-compose up
+    
+  - name: Set permission
+    # Waits a little and then configures Wordpress
+    # Last line opens Website in new browser window
+    # Set permission that "gitpod" user can access folders created inside docker container. Couldn't find a better way.
+    init: |
+      gp sync-await docker
+      echo "Waiting 10s for DB to get ready..."
+      sleep 10
+      sudo chmod -R 755 ./wp-root
+      sudo chown -R gitpod:gitpod ./wp-root
+    # Then open Wordpress in Browser and tail logs
+    command: |
+      gp preview $(gp url 8000) --external
 
 vscode:
   extensions:
