@@ -24,6 +24,8 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
     volumes: 
       - ./wp-root:/var/www/html
+      - ./apache-logs/:/var/log/apache2
 
 volumes:
   database:
+  apache-logs:
